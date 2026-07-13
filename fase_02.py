@@ -7,11 +7,6 @@
 
 # FASE 2
 
-def enviar_a_fase3(nombre, cantidad):
-    """Simula el envío de los datos a la siguiente fase."""
-    print(f"Enviando: {nombre} | Stock: {cantidad}")
-
-
 def procesar_inventario(inventario):
 
     total_productos = len(inventario)
@@ -28,8 +23,6 @@ def procesar_inventario(inventario):
         print(f"Producto : {nombre}")
         print(f"Stock    : {cantidad}")
 
-        enviar_a_fase3(nombre, cantidad)
-
         procesados += 1
 
         print(f"Procesados: {procesados}/{total_productos}")
@@ -38,5 +31,7 @@ def procesar_inventario(inventario):
     if procesados == total_productos:
         print("\nTodos los productos fueron procesados correctamente.")
         print("\n Información preparada para la siguiente fase.")
+        return inventario
     else:
         print("\nNo se pudieron procesar todos los productos.")
+        return None

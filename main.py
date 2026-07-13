@@ -1,5 +1,6 @@
 import fase_01
 import fase_02
+import fase_03
 from inventario import inventario_dict
 
 STOCK_MINIMO_INVENTARIO = 30
@@ -25,7 +26,9 @@ def main():
             prod = input("Producto: ").lower().strip()
             fase_01.registrar_o_actualizar_producto(inventario_dict, prod)
         elif opcion == "3":
-            fase_02.procesar_inventario(inventario_dict)
+            datos_preparados = fase_02.procesar_inventario(inventario_dict)
+            if datos_preparados is not None:
+                fase_03.procesar_fase3(datos_preparados, STOCK_MINIMO_INVENTARIO)
 
 
 if __name__ == "__main__":
